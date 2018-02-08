@@ -54,13 +54,12 @@ function runSpotify() {
 
 function movie() {
 	var movie = process.argv.slice(3);
-	if (process.argv.length < 3) {
+	if (process.argv.length < 4) {
 		movie = "Mr.Nobody";
 	};
     var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
     request.get(queryURL, function (error, response, body) {
     	var body = JSON.parse(body);
-    	console.log(body);
     	console.log("Title: " + body.Title + "\n" + "Year: " + body.Year + "\n" + 
     		"IMDB Rating: " + body.imdbRating + "\n" + "Country: " + body.Country + "\n" + 
     		"Language: " + body.Language + "\n" + "Plot: " + body.Plot + "\n" + 
